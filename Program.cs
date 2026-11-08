@@ -6,11 +6,12 @@ class Program
 {
     static void Main(string[] args)
     {
+        //Precios base de los productos de la tienda
         double precioGuitarra = 249.90;
         double precioTrompeta = 189.00;
         double precioPiano = 399.00;
         double precioBateria = 549.00;
-
+        //Precios base de los extras de la tienda
         double precioFunda = 35.00;
         double precioPuestaPunto = 25.00;
         double precioGarantia = 45.00;
@@ -20,7 +21,7 @@ class Program
         double importeMinimoParaDescuento = 300.00;
         double porcentajeDescuentImporte = 10.00;
         double porcentajeDescuentoSocio = 5.00;
-
+        //Variables para guardar las estadisticasa de toda la sesión de la caja
         int operacionesCobradas = 0;
         double recaudado = 0;
         double importeMayor = 0;
@@ -33,6 +34,7 @@ class Program
         int ventasBateria = 0;
 
         int opcionMenu = 0;
+        //Bucle del menú principal que se repite hasta que la persona decida salir (opción 3)
         while (opcionMenu != 3)
         {
             Console.WriteLine();
@@ -46,6 +48,7 @@ class Program
             {
                 case 1:
                     string cliente = "";
+                    //El nombre del cliente no puede estar vacío ni contener solo espacios
                     while (cliente == "")
                     {
                         Console.Write("Nombre del cliente: ");
@@ -75,6 +78,7 @@ class Program
                     int opcionInstrumento = 0;
                     string nombreInstrumento = "";
                     double precioInstrumento = 0.0;
+                    //Selección del producto principal de la tienda y se le asigna su propio precio.
                     while (opcionInstrumento < 1 || opcionInstrumento > 4)
                     {
                         Console.WriteLine("---- INSTRUMENTOS ----");
@@ -108,6 +112,7 @@ class Program
                                 break;
                         }
                     }
+                    //Bucle para elegir los productos extras. Uso bool para evitar que no elijan 2 veces el mismo extra y cobrar de más.
                     bool tieneFunda = false;
                     bool tienePuestaPunto = false;
                     bool tieneGarantia = false;
@@ -172,6 +177,7 @@ class Program
                         Console.WriteLine("Extras elegidos: " + numeroExtras);
                         Console.WriteLine("Importe provisional: " + (precioInstrumento + totalExtras) + "€");
                     }
+                    //Condición del negocio, si elige envio a domicilio se suma los gastos de envio y se pide la dirección de envío obligatoriamente sin poder rellenarla solo con espacios.
                     int opcionEntrega = 0;
                     string metodoEntrega = "";
                     string direccion = "";
@@ -209,6 +215,7 @@ class Program
                             }
                         }
                     }
+                    //Cálculo de descuentos: uno por superar el importe mínimo del 10% y otro por ser socio del 5%.
                     double subtotal = precioInstrumento + totalExtras;
                     double descuentoImporte = 0;
                     double descuentoSocio = 0;
@@ -234,7 +241,7 @@ class Program
                     Console.WriteLine("Descuento por ser socio (" + porcentajeDescuentoSocio + "%): " + descuentoSocio.ToString("F2"));
                     Console.WriteLine("Suplemento de envio: " + suplemento.ToString("F2") + "€");
                     Console.WriteLine("Total a pagar: " + total.ToString("F2") + "€");
-
+                    //Bucle de cobro: doy un máximo de 5 intentos para que el cliente entregue el dinero suficiente, si no lo hace en esos 5 intentos, volverá al menú principal.
                     double dineroDado = 0;
                     int intentosDePago = 0;
                     int maxIntentoPago = 5;
@@ -255,7 +262,7 @@ class Program
                         continue;
                     }
                     double cambio = dineroDado - total;
-
+                    //Actualización de los acumuladores de la caja de sesión (solo puede llegar a aquí si ha cumplido con el pago)
                     operacionesCobradas++;
                     recaudado += total;
                     if (total > importeMayor)
