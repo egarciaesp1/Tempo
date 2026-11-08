@@ -33,7 +33,7 @@ class Program
         int ventasBateria = 0;
 
         int opcionMenu = 0;
-        while (opcionMenu !=3)
+        while (opcionMenu != 3)
         {
             Console.WriteLine();
             Console.WriteLine("---- TIENDA DE MÚSICA TEMPO ----");
@@ -73,7 +73,7 @@ class Program
                     }
 
                     int opcionInstrumento = 0;
-                    string nombreInstrumento =  "";
+                    string nombreInstrumento = "";
                     double precioInstrumento = 0.0;
                     while (opcionInstrumento < 1 || opcionInstrumento > 4)
                     {
@@ -88,25 +88,25 @@ class Program
                         switch (opcionInstrumento)
                         {
                             case 1:
-                            nombreInstrumento = "Guitarra eléctrica";
-                            precioInstrumento = precioGuitarra;
-                            break;
-                            case 2: 
-                            nombreInstrumento = "Trompeta";
-                            precioInstrumento = precioTrompeta;
-                            break;
+                                nombreInstrumento = "Guitarra eléctrica";
+                                precioInstrumento = precioGuitarra;
+                                break;
+                            case 2:
+                                nombreInstrumento = "Trompeta";
+                                precioInstrumento = precioTrompeta;
+                                break;
                             case 3:
-                            nombreInstrumento = "Piano";
-                            precioInstrumento = precioPiano;
-                            break;
-                            case 4: 
-                            nombreInstrumento = "Batería acústica";
-                            precioInstrumento = precioBateria;
-                            break;
+                                nombreInstrumento = "Piano";
+                                precioInstrumento = precioPiano;
+                                break;
+                            case 4:
+                                nombreInstrumento = "Batería acústica";
+                                precioInstrumento = precioBateria;
+                                break;
                             default:
-                            Console.WriteLine("Opción no válida");
-                            break; 
-                        } 
+                                Console.WriteLine("Opción no válida");
+                                break;
+                        }
                     }
                     bool tieneFunda = false;
                     bool tienePuestaPunto = false;
@@ -126,8 +126,8 @@ class Program
 
                         switch (opcionExtra)
                         {
-                            case 1: 
-                            if (tieneFunda)
+                            case 1:
+                                if (tieneFunda)
                                 {
                                     Console.WriteLine("La funda ya está añadida");
                                 }
@@ -138,9 +138,9 @@ class Program
                                     totalExtras += precioFunda;
                                     Console.WriteLine("Funda añadida.");
                                 }
-                            break;
-                            case 2: 
-                            if (tienePuestaPunto)
+                                break;
+                            case 2:
+                                if (tienePuestaPunto)
                                 {
                                     Console.WriteLine("La puesta a punto ya está añadida.");
                                 }
@@ -151,9 +151,9 @@ class Program
                                     totalExtras += precioPuestaPunto;
                                     Console.WriteLine("Puesta a punto añadida.");
                                 }
-                            break;
+                                break;
                             case 3:
-                            if (tieneGarantia)
+                                if (tieneGarantia)
                                 {
                                     Console.WriteLine("La garantía ya está añadida.");
                                 }
@@ -164,10 +164,10 @@ class Program
                                     totalExtras += precioGarantia;
                                     Console.WriteLine("Garantía ampliada añadida.");
                                 }
-                            break;
-                            default: 
-                            Console.WriteLine("Opción no válida.");
-                            break;
+                                break;
+                            default:
+                                Console.WriteLine("Opción no válida.");
+                                break;
                         }
                         Console.WriteLine("Extras elegidos: " + numeroExtras);
                         Console.WriteLine("Importe provisional: " + (precioInstrumento + totalExtras) + "€");
@@ -186,15 +186,15 @@ class Program
                         switch (opcionEntrega)
                         {
                             case 1:
-                            metodoEntrega = "Recogida en tienda";
-                            break;
+                                metodoEntrega = "Recogida en tienda";
+                                break;
                             case 2:
-                            metodoEntrega = "Envio a domicilio";
-                            suplemento = gastosEnvio;
-                            break;
+                                metodoEntrega = "Envio a domicilio";
+                                suplemento = gastosEnvio;
+                                break;
                             default:
-                            Console.WriteLine("Opción no válida");
-                            break;
+                                Console.WriteLine("Opción no válida");
+                                break;
                         }
                     }
                     if (opcionEntrega == 2)
@@ -215,7 +215,7 @@ class Program
                     if (subtotal >= importeMinimoParaDescuento)
                     {
                         descuentoImporte = subtotal * porcentajeDescuentImporte / 100;
-                    } 
+                    }
                     if (esSocio)
                     {
                         descuentoSocio = subtotal * porcentajeDescuentoSocio / 100;
@@ -240,10 +240,10 @@ class Program
                     int maxIntentoPago = 5;
                     while (dineroDado < total && intentosDePago < maxIntentoPago)
                     {
-                    Console.Write("Dinero dado (€): ");
-                    dineroDado = double.Parse(Console.ReadLine()!);
-                    intentosDePago++;
-                    if (dineroDado < total)
+                        Console.Write("Dinero dado (€): ");
+                        dineroDado = double.Parse(Console.ReadLine()!);
+                        intentosDePago++;
+                        if (dineroDado < total)
                         {
                             Console.WriteLine("Pago insuficiente. Debes entregar al menos: " + total + "€");
                             Console.WriteLine("Intento " + intentosDePago + " de " + maxIntentoPago);
@@ -255,7 +255,7 @@ class Program
                         continue;
                     }
                     double cambio = dineroDado - total;
-                    
+
                     operacionesCobradas++;
                     recaudado += total;
                     if (total > importeMayor)
@@ -274,17 +274,17 @@ class Program
                     switch (opcionInstrumento)
                     {
                         case 1:
-                        ventasGuitarra++;
-                        break;
-                        case 2: 
-                        ventasTrompeta++;
-                        break;
-                        case 3: 
-                        ventasPiano++;
-                        break;
+                            ventasGuitarra++;
+                            break;
+                        case 2:
+                            ventasTrompeta++;
+                            break;
+                        case 3:
+                            ventasPiano++;
+                            break;
                         case 4:
-                        ventasBateria++;
-                        break;
+                            ventasBateria++;
+                            break;
                     }
                     string textoSocio = "";
                     if (esSocio)
@@ -332,13 +332,13 @@ class Program
                     Console.WriteLine("Dinero entregado: " + dineroDado.ToString("F2") + "€");
                     Console.WriteLine("Cambio: " + cambio.ToString("F2") + "€");
                     Console.WriteLine("¡Gracias por tu compra!");
-                break;
+                    break;
                 case 2:
-                Console.WriteLine("---- Caja de la sesión ----");
-                if (operacionesCobradas == 0)
+                    Console.WriteLine("---- Caja de la sesión ----");
+                    if (operacionesCobradas == 0)
                     {
                         Console.WriteLine("Todavía no hay operaciones cobradas.");
-                    } 
+                    }
                     else
                     {
                         double importeMedio = recaudado / operacionesCobradas;
@@ -352,16 +352,16 @@ class Program
                         Console.WriteLine("Guitarra: " + ventasGuitarra);
                         Console.WriteLine("Trompeta: " + ventasTrompeta);
                         Console.WriteLine("Piano: " + ventasPiano);
-                        Console.WriteLine("Batería: " +ventasBateria);
+                        Console.WriteLine("Batería: " + ventasBateria);
                     }
-                break;
+                    break;
                 case 3:
-                Console.WriteLine("¡Gracias por usar la tienda de música Tempo! Hasta pronto.");
-                Console.WriteLine("Resumen: " + operacionesCobradas + " operaciones, " + recaudado.ToString("F2") + " € ingresados.");
-                break;
+                    Console.WriteLine("¡Gracias por usar la tienda de música Tempo! Hasta pronto.");
+                    Console.WriteLine("Resumen: " + operacionesCobradas + " operaciones, " + recaudado.ToString("F2") + " € ingresados.");
+                    break;
                 default:
-                Console.WriteLine("Opción no válida");
-                break;
+                    Console.WriteLine("Opción no válida");
+                    break;
             }
         }
     }
